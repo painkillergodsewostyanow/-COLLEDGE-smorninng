@@ -11,4 +11,7 @@
     <string name="unit_3_title">Процедурные рингтоны</string>
     <string name="unit_3_text">Звуки будильника в нашем приложении генерируются автоматически. Рингтоны специально разработаны так, что невозможно уснуть снова.</string>
     <string name="pump_for_pictures">pump</string>
+    <string name="main_activity_list_sign">Список сигналов</string>
+    <string name="main_activity_plus">+</string>
+    <string name="call_set_list_sign">Править</string>
 </resources>

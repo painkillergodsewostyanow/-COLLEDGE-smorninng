@@ -10,4 +10,5 @@
     <color name="black_pink">#FF64C1</color>
     <color name="high_pink">#F8CBE6</color>
     <color name="main_page_buttons">@color/black_pink</color>
+    <color name="high_green">#a0fc9c</color>
 </resources>
