@@ -34,13 +34,14 @@ class Quiz : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
+
     @SuppressLint("SetTextI18n")
     fun quiz(){
         firstChoice = createChoice()
         secondChoice = createChoice()
         answerSelect = listOf(firstChoice.second, secondChoice.second).random()
-        binding.chose1.text = firstChoice.first + "   " +firstChoice.second.toString()
-        binding.chose2.text = secondChoice.first + "   " +secondChoice.second.toString()
+        binding.chose1.text = firstChoice.first + "   " + firstChoice.second
+        binding.chose2.text = secondChoice.first + "   " + secondChoice.second
         binding.answer.text = "= $answerSelect"
         binding.counter.text = "Решите $count, чтобы остановить сигнал"
     }
@@ -49,7 +50,7 @@ class Quiz : AppCompatActivity() {
     fun finishAllProcess(){
         finish()
         onDestroy()
-        am.cancel(pIntent)
+            am.cancel(pIntent)
     }
 
     override fun onBackPressed() {
