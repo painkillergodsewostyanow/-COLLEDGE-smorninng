@@ -18,7 +18,7 @@ class Alarm: BroadcastReceiver(){
         val builder = NotificationCompat.Builder(context!!,"channel")
             .setSmallIcon(R.mipmap._logo_round)
             .setContentTitle("Пора вставать")
-            .setContentText("Решите небольшой пару что бы проснуться!")
+            .setContentText("Решите пару задач что бы проснуться!")
             .setAutoCancel(true)
             .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setPriority(NotificationCompat.PRIORITY_HIGH)

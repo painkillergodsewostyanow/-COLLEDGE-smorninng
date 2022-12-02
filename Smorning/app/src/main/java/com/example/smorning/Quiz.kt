@@ -1,7 +1,10 @@
 package com.example.smorning
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,12 +16,20 @@ class Quiz : AppCompatActivity() {
     private var secondChoice = createChoice()
     private var answerSelect = listOf(firstChoice.second, secondChoice.second).random()
     private var count = 5
+    lateinit var am: AlarmManager
+    lateinit var baseIntent: Intent
+    lateinit var pIntent:PendingIntent
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizBinding.inflate(layoutInflater)
         getSystemService(NotificationManager::class.java).cancel(123)
         quiz()
+        am = getSystemService(ALARM_SERVICE) as AlarmManager
+        baseIntent = Intent(applicationContext, Alarm::class.java)
+        pIntent = PendingIntent.getBroadcast(applicationContext, 1000,
+            baseIntent, 0)
         setContentView(binding.root)
         supportActionBar?.hide()
     }
@@ -38,6 +49,7 @@ class Quiz : AppCompatActivity() {
     fun finishAllProcess(){
         finish()
         onDestroy()
+        am.cancel(pIntent)
     }
 
     override fun onBackPressed() {

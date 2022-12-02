@@ -49,13 +49,6 @@ class CreateAlarm : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
         timeSet.show(supportFragmentManager, "time_set")
     }
     fun stopSignal(view: View){
-        val am = getSystemService(ALARM_SERVICE) as AlarmManager
-        val baseIntent = Intent(applicationContext, Alarm::class.java)
-        val pIntent = PendingIntent.getBroadcast(applicationContext, 1000,
-            baseIntent, 0
-        )
-        pIntent.cancel()
-        am.cancel(pIntent)
         startActivity(Intent(this, Quiz::class.java))
     }
 }
