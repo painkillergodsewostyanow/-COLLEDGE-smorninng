@@ -14,28 +14,32 @@
         android:theme="@style/Theme.Smorning"
         tools:targetApi="31">
         <activity
-            android:name=".Quiz"
+            android:name=".CreateAlarm"
             android:screenOrientation="portrait"
             android:exported="false" />
-
+        <activity
+            android:name=".Quiz"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MoreInfoActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".FirstStartActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".Alarm"/>
     </application>
 
 </manifest>

@@ -1,7 +1,5 @@
 package com.example.smorning
 
-import android.app.AlarmManager
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,5 +13,8 @@ class MainActivity : AppCompatActivity() {
     }
     fun startTestQuiz(view: View){
         startActivity(Intent(this, Quiz::class.java))
+    }
+    fun createAlarm(view: View){
+        startActivity(Intent(this, CreateAlarm::class.java))
     }
 }

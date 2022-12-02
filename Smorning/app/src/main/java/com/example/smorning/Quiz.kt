@@ -1,7 +1,7 @@
 package com.example.smorning
 
 import android.annotation.SuppressLint
-import android.media.MediaPlayer
+import android.app.NotificationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,27 +11,15 @@ class Quiz : AppCompatActivity() {
     private lateinit var binding: ActivityQuizBinding
     private var firstChoice = createChoice()
     private var secondChoice = createChoice()
-    private var answerSelect= listOf(firstChoice.second, secondChoice.second).random()
-    private var count = 3
-    lateinit var signal: MediaPlayer
+    private var answerSelect = listOf(firstChoice.second, secondChoice.second).random()
+    private var count = 5
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        signal = MediaPlayer.create(this,R.raw.first_alarm_sing)
-        signal.isLooping = true
-        signal.start()
         binding = ActivityQuizBinding.inflate(layoutInflater)
-        binding.chose1.text = firstChoice.first + "   " +firstChoice.second.toString()
-        binding.chose2.text = secondChoice.first + "   " +secondChoice.second.toString()
-        binding.answer.text = "= $answerSelect"
-        binding.counter.text = "Решите $count, чтобы остановить сигнал"
+        getSystemService(NotificationManager::class.java).cancel(123)
+        quiz()
         setContentView(binding.root)
-        binding.root.setOnClickListener {
-            window.decorView.apply {
-                // Hides the navigation bar.
-                systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-            }
-        }
         supportActionBar?.hide()
     }
 
@@ -48,8 +36,8 @@ class Quiz : AppCompatActivity() {
 
 
     fun finishAllProcess(){
-        signal.stop()
         finish()
+        onDestroy()
     }
 
     override fun onBackPressed() {
@@ -81,7 +69,7 @@ class Quiz : AppCompatActivity() {
         quiz()
     }
     fun stopQuiz(view: View){
-        finishAllProcess()
+        finish()
     }
     // создаем рандомный пример и возвращаем его, в виде строки и ответ
     private fun createChoice(): Pair<String, Int> {
