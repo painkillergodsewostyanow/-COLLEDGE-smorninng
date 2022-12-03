@@ -1,3 +1,5 @@
+
+
 package com.example.smorning
 
 import android.app.PendingIntent
@@ -13,9 +15,9 @@ class Alarm: BroadcastReceiver(){
         val song = R.raw.first_alarm_sing
         val signal = MediaPlayer.create(context, song)
         val intent = Intent(context, Quiz::class.java)
-        intent!!.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         val pIntent = PendingIntent.getActivity(context, 123, intent, 0)
-        val builder = NotificationCompat.Builder(context!!,"channel")
+        val builder = NotificationCompat.Builder(context,"channel")
             .setSmallIcon(R.mipmap._logo_round)
             .setContentTitle("Пора вставать")
             .setContentText("Решите пару задач что бы проснуться!")

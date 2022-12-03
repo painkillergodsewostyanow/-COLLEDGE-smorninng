@@ -7,11 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TimePicker
-import kotlinx.coroutines.NonCancellable.cancel
 import java.util.*
 
 class CreateAlarm : AppCompatActivity(), TimePickerDialog.OnTimeSetListener {
-    lateinit var notificationManager: NotificationManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_alarm)
