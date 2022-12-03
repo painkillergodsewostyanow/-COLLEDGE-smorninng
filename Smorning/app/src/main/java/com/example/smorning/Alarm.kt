@@ -26,8 +26,7 @@ class Alarm: BroadcastReceiver(){
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(123, builder.build())
         if (signal != null) {
-            signal.isLooping = true
-            signal.setVolume(5f, 5f)
+            signal.setVolume(100f, 100f)
             signal.start()
             signal.setOnCompletionListener { signal -> signal.release() }
         }
